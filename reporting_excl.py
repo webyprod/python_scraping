@@ -20,3 +20,20 @@ def verif_niveau():
       ligne = i
       break
   return ligne
+
+
+def remplissage_cellules(url="", titre="", description="", keywords="", h1="", h2=""):
+  informations_du_site = {
+    'url':url,
+    'titre':titre,
+    'meta description':description,
+    'meta keywords': keywords,
+    'h1':h1,
+    'h2':h2
+    }
+  ligne = verif_niveau()
+  colonne = 1
+  for valeur in informations_du_site.values():
+    classeur.cell(row=ligne,column=colonne).value = valeur
+    colonne += 1
+    fichier.save('site.xlsx')
